@@ -1,0 +1,47 @@
+<html lang="en">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<head>
+<title>My first osm</title>
+<link rel="stylesheet" type="text/css" href="leaflet.css"/>
+<script type="text/javascript" src="leaflet.js"></script>
+<script type="text/javascript" src="OSMBuildings-Leaflet.js"></script>
+<style>
+   #map{width:100%;height:100%}
+</style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([30.8606,75.8617],17);
+    L.tileLayer('../../pb_osm/{z}/{x}/{y}.png',{maxZoom:18}).addTo(map);
+new OSMBuildings(map).load();
+/*
+var geoJSON = {
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "id": 134,
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+        [30.8580759, 75.8605802],
+        [30.8582264, 75.8606044],
+        [30.8580808, 75.8601923],
+        [30.8582168, 75.8601811]
+      ]]
+    },
+    "properties": {
+      "wallColor": "rgb(255,0,0)",
+      "roofColor": "rgb(255,128,0)",
+      "height": 500,
+      "minHeight": 0
+    }
+  }]
+};
+*/
+new OSMBuildings(map).set(geoJSON);
+</script>
+</body>
+</html>
